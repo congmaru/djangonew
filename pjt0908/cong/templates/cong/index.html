@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>INDEX</h1>
+    <a href="{% url 'cong:create' %}">글 작성하기</a>
+    <hr>
+    {% for mm in maru %}
+        
+        <a href="{% url 'cong:detail' mm.pk %}"><p> PK : {{mm.pk}} </p></a>
+        <p> TITLE : {{mm.title}} </p>
+        <p> CONTENT : {{mm.content}} </p>
+        <hr>
+        
+    {% endfor %}
+
+{% endblock content %}

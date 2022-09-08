@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>DETAIL</h1>
+    <hr>
+    <p> PK : {{maru.pk}} </p>
+    <p> TITLE : {{maru.title}} </p>
+    <p> CONTENT : {{maru.content}} </p>
+    <p> CREATED_at : {{maru.created_at}} </p>
+    <p> UPDATED_at : {{maru.updated_at}} </p>
+    <hr>
+    <a href="{% url 'cong:update' maru.pk %}">UPDATE</a>
+    <a href="{% url 'cong:index' %}">BACK</a>
+
+    <form action="{% url 'cong:delete' maru.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="DELETE">
+    </form>
+{% endblock content %}
